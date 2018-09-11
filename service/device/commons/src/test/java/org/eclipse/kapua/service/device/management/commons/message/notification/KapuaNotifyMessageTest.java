@@ -9,15 +9,15 @@
  * Contributors:
  *     Eurotech - initial API and implementation
  *******************************************************************************/
-package org.eclipse.kapua.message.internal.device.lifecycle;
+package org.eclipse.kapua.service.device.management.commons.message.notification;
+
+import org.eclipse.kapua.service.device.management.message.notification.KapuaNotifyChannel;
+import org.eclipse.kapua.service.device.management.message.notification.KapuaNotifyPayload;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.eclipse.kapua.message.device.lifecycle.KapuaNotifyChannel;
-import org.eclipse.kapua.message.device.lifecycle.KapuaNotifyPayload;
-import org.junit.Assert;
-import org.junit.Test;
 
 public class KapuaNotifyMessageTest extends Assert {
 
@@ -27,22 +27,14 @@ public class KapuaNotifyMessageTest extends Assert {
     public void kapuaNotifyPayloadConstructor() {
         KapuaNotifyPayload kapuaNotifyPayload = new KapuaNotifyPayloadImpl();
 
-        assertNotNull(kapuaNotifyPayload);
+        Assert.assertNotNull(kapuaNotifyPayload);
     }
 
     @Test
     public void kapuaNotifyMessageConstructor() throws Exception {
         KapuaNotifyMessageImpl kapuaNotifyMessage = new KapuaNotifyMessageImpl();
 
-        assertNotNull(kapuaNotifyMessage);
-    }
-
-    @Test
-    public void kapuaNotifyChannelGetterSetters() throws Exception {
-        KapuaNotifyChannel kapuaNotifyChannel = new KapuaNotifyChannelImpl();
-
-        kapuaNotifyChannel.setClientId("clientId-1");
-        assertEquals("clientId-1", kapuaNotifyChannel.getClientId());
+        Assert.assertNotNull(kapuaNotifyMessage);
     }
 
     @Test
@@ -53,10 +45,9 @@ public class KapuaNotifyMessageTest extends Assert {
         semanticParts.add("part2");
         semanticParts.add("part3");
 
-        kapuaNotifyChannel.setClientId("clientId-1");
         kapuaNotifyChannel.setSemanticParts(semanticParts);
         String displayStr = kapuaNotifyChannel.toString();
-        assertEquals(NOTIFY_MSG_STR, displayStr);
+        Assert.assertEquals(NOTIFY_MSG_STR, displayStr);
     }
 
 }
